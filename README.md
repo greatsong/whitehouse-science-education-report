@@ -6,6 +6,7 @@
 
 - [GitHub Pages에서 보기](https://greatsong.github.io/whitehouse-science-education-report/)
 - [2026 CSTA PK–12 컴퓨터과학 표준 심층 분석](https://greatsong.github.io/whitehouse-science-education-report/csta-2026-standards.html)
+- [2026 CSTA 표준 331개 영한 병렬 열람판](https://greatsong.github.io/whitehouse-science-education-report/csta-2026-bilingual-standards.html)
 
 ## 분석 범위
 
@@ -33,3 +34,5 @@
 - 6개 고등학교 전문 경로와 X+CS
 - 수학(CCSS)·과학(NGSS)·사회(C3) 공식 교과 연결
 - 한국형 교육과정·수업·평가·교원·인프라 적용안
+
+영한 병렬 열람판은 CSTA 공식 성취기준 331개를 코드·학년·개념·전문영역·AI 여부로 검색하며, 공식 영문과 비공식 한국어 번역을 나란히 제공합니다. 원저작물과 번역·열람판은 비상업적 CC BY-NC-SA 4.0 조건을 따릅니다.
