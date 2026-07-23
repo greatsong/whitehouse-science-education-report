@@ -1,0 +1,618 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="백악관 Science: A New Golden Age 보고서를 AI·컴퓨터과학·데이터 리터러시·과학·수학·STEM 교육 관점에서 분석한 팀장 종합 보고서">
+  <meta name="theme-color" content="#123047">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:title" content="Science: A New Golden Age — 교육적 재해석">
+  <meta property="og:description" content="백악관 과학기술정책 보고서를 여섯 교육 관점에서 병렬 분석하고 한국형 실행 로드맵으로 종합했습니다.">
+  <meta property="og:url" content="https://greatsong.github.io/whitehouse-science-education-report/">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://greatsong.github.io/whitehouse-science-education-report/">
+  <title>Science: A New Golden Age — 교육적 재해석</title>
+  <style>
+    :root {
+      --ink: #17252d;
+      --muted: #5e6c73;
+      --paper: #f5f2eb;
+      --surface: #fffdf8;
+      --navy: #123047;
+      --navy-2: #1a435a;
+      --teal: #0f766e;
+      --teal-soft: #dff4ef;
+      --amber: #c97827;
+      --amber-soft: #fff0d8;
+      --rose: #a6474d;
+      --rose-soft: #f9e6e7;
+      --blue-soft: #e7f0f5;
+      --line: #d9d6ce;
+      --shadow: 0 16px 40px rgba(18, 48, 71, .10);
+      --radius: 18px;
+      --max: 1220px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% 0%, rgba(15, 118, 110, .09), transparent 25rem),
+        var(--paper);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", Arial, sans-serif;
+      line-height: 1.68;
+      word-break: keep-all;
+    }
+
+    a { color: var(--teal); text-underline-offset: 3px; }
+    a:hover { color: var(--amber); }
+    .skip-link {
+      position: fixed; top: 8px; left: 8px; z-index: 100;
+      padding: 8px 12px; transform: translateY(-150%);
+      background: #fff; color: #000; border-radius: 8px;
+    }
+    .skip-link:focus { transform: translateY(0); }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      color: white;
+      background:
+        linear-gradient(125deg, rgba(18,48,71,.98), rgba(22,73,82,.94)),
+        var(--navy);
+      border-bottom: 5px solid var(--amber);
+    }
+    .hero::after {
+      content: "";
+      position: absolute; inset: auto -8rem -13rem auto;
+      width: 34rem; height: 34rem; border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.18);
+      box-shadow: 0 0 0 4rem rgba(255,255,255,.03), 0 0 0 9rem rgba(255,255,255,.025);
+    }
+    .hero-inner {
+      position: relative; z-index: 1;
+      max-width: var(--max); margin: 0 auto; padding: 70px 28px 60px;
+    }
+    .eyebrow {
+      display: inline-flex; gap: 8px; align-items: center;
+      margin: 0 0 18px; padding: 7px 12px;
+      border: 1px solid rgba(255,255,255,.32); border-radius: 999px;
+      color: #dbf7f2; font-size: .78rem; font-weight: 800; letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .hero h1 {
+      max-width: 920px; margin: 0;
+      font-family: ui-serif, Georgia, "Noto Serif KR", serif;
+      font-size: clamp(2.4rem, 5vw, 5.3rem); line-height: 1.05; letter-spacing: -.045em;
+    }
+    .hero h1 span { display: block; color: #8fdacf; font-size: .58em; margin-top: 12px; }
+    .hero .dek { max-width: 820px; margin: 28px 0 24px; color: #e7f1f2; font-size: 1.08rem; }
+    .meta-row { display: flex; flex-wrap: wrap; gap: 10px; color: #c8dade; font-size: .88rem; }
+    .meta-row span { padding: 5px 9px; border-radius: 6px; background: rgba(255,255,255,.08); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
+    .button {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      min-height: 42px; padding: 9px 15px; border: 1px solid rgba(255,255,255,.4);
+      border-radius: 10px; color: white; background: transparent; font: inherit; font-weight: 750;
+      text-decoration: none; cursor: pointer;
+    }
+    .button.primary { background: #fff; color: var(--navy); border-color: #fff; }
+
+    .shell {
+      display: grid; grid-template-columns: 245px minmax(0, 1fr); gap: 34px;
+      max-width: var(--max); margin: 0 auto; padding: 36px 28px 80px;
+    }
+    .sidebar { position: relative; }
+    .sidebox {
+      position: sticky; top: 20px; padding: 17px;
+      background: rgba(255,253,248,.88); border: 1px solid var(--line); border-radius: 14px;
+      backdrop-filter: blur(10px);
+    }
+    .sidebox strong { display: block; margin: 0 0 9px; font-size: .76rem; color: var(--muted); letter-spacing: .08em; }
+    .sidebox nav { display: grid; gap: 4px; }
+    .sidebox a {
+      padding: 7px 9px; border-radius: 7px; color: #43535b; font-size: .87rem; font-weight: 650;
+      text-decoration: none; transition: .15s ease;
+    }
+    .sidebox a:hover, .sidebox a.active { color: var(--navy); background: var(--teal-soft); }
+    .side-source { margin: 14px 2px 0; padding-top: 12px; border-top: 1px solid var(--line); font-size: .76rem; color: var(--muted); }
+
+    main { min-width: 0; }
+    .report-section { scroll-margin-top: 20px; margin-bottom: 64px; }
+    .section-kicker { margin: 0 0 7px; color: var(--teal); font-weight: 850; font-size: .8rem; letter-spacing: .09em; text-transform: uppercase; }
+    h2 {
+      margin: 0 0 20px; color: var(--navy); font-family: ui-serif, Georgia, "Noto Serif KR", serif;
+      font-size: clamp(1.8rem, 3vw, 2.65rem); line-height: 1.2; letter-spacing: -.035em;
+    }
+    h3 { margin: 0 0 10px; color: var(--navy); font-size: 1.1rem; line-height: 1.35; }
+    h4 { margin: 0 0 8px; color: var(--navy); font-size: .96rem; }
+    p { margin: 0 0 1em; }
+
+    .lead {
+      padding: 25px 27px; border-left: 5px solid var(--teal); border-radius: 0 var(--radius) var(--radius) 0;
+      background: var(--surface); box-shadow: var(--shadow); font-size: 1.05rem;
+    }
+    .note {
+      margin: 18px 0; padding: 16px 18px; border: 1px solid #dfbf8f; border-radius: 12px;
+      background: var(--amber-soft); color: #5d3c19; font-size: .9rem;
+    }
+    .note strong { color: #7a4713; }
+    .critical { border-color: #dbb8bb; background: var(--rose-soft); color: #6c3236; }
+    .critical strong { color: #7e2f36; }
+
+    .card-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 15px; }
+    .card {
+      padding: 20px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+      box-shadow: 0 8px 24px rgba(18,48,71,.055);
+    }
+    .card p:last-child, .card ul:last-child { margin-bottom: 0; }
+    .card .number {
+      display: inline-grid; place-items: center; width: 31px; height: 31px; margin-bottom: 12px;
+      border-radius: 50%; background: var(--navy); color: white; font-size: .78rem; font-weight: 850;
+    }
+    .shift { display: grid; grid-template-columns: 1fr auto 1fr; gap: 10px; align-items: center; }
+    .shift > div { padding: 13px; border-radius: 10px; background: var(--blue-soft); font-size: .9rem; }
+    .shift > div:last-child { background: var(--teal-soft); color: #174f4a; font-weight: 750; }
+    .arrow { color: var(--amber); font-weight: 900; }
+
+    .badge {
+      display: inline-flex; align-items: center; margin: 0 6px 5px 0; padding: 4px 8px;
+      border-radius: 999px; font-size: .72rem; line-height: 1.2; font-weight: 850;
+    }
+    .badge.direct { color: #174f4a; background: var(--teal-soft); }
+    .badge.infer { color: #784613; background: var(--amber-soft); }
+    .badge.caution { color: #782f35; background: var(--rose-soft); }
+    .badge.level { color: var(--navy); background: var(--blue-soft); }
+    .badge.source { color: #45545d; background: #ecebe7; }
+
+    .domain {
+      overflow: hidden; background: var(--surface); border: 1px solid var(--line); border-radius: 24px;
+      box-shadow: var(--shadow);
+    }
+    .domain-head {
+      display: grid; grid-template-columns: 72px 1fr; gap: 18px; align-items: center;
+      padding: 28px 30px; color: white; background: linear-gradient(125deg, var(--navy), var(--navy-2));
+    }
+    .domain-head .index {
+      display: grid; place-items: center; width: 62px; height: 62px; border: 1px solid rgba(255,255,255,.38);
+      border-radius: 17px; color: #9fe1d7; font-family: ui-serif, Georgia, serif; font-size: 1.8rem; font-weight: 800;
+    }
+    .domain-head h2 { margin: 0 0 5px; color: white; font-size: clamp(1.55rem, 3vw, 2.25rem); }
+    .domain-head p { margin: 0; color: #dce9eb; font-size: .92rem; }
+    .domain-body { padding: 26px 30px 32px; }
+    .evidence-box {
+      margin-bottom: 20px; padding: 18px; border-radius: 14px; background: #edf6f4; border: 1px solid #cce6df;
+    }
+    .evidence-box h3 { font-size: 1rem; }
+    .evidence-box ul { margin: 8px 0 0; padding-left: 19px; }
+    .evidence-box li + li { margin-top: 5px; }
+    .analysis-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 13px; }
+    .mini {
+      padding: 16px; border: 1px solid var(--line); border-radius: 13px; background: #fff;
+    }
+    .mini ul { margin: 8px 0 0; padding-left: 18px; font-size: .87rem; }
+    .mini li + li { margin-top: 4px; }
+    .level-block { margin-top: 22px; }
+    .level-block h3 { padding-bottom: 8px; border-bottom: 2px solid var(--navy); }
+    .level-table, .matrix, .roadmap-table, .source-table {
+      width: 100%; border-collapse: collapse; font-size: .86rem; background: #fff;
+    }
+    .level-table th, .level-table td, .matrix th, .matrix td,
+    .roadmap-table th, .roadmap-table td, .source-table th, .source-table td {
+      padding: 12px 13px; border: 1px solid var(--line); text-align: left; vertical-align: top;
+    }
+    .level-table th, .matrix th, .roadmap-table th, .source-table th {
+      color: white; background: var(--navy); font-weight: 800;
+    }
+    .level-table td:first-child, .roadmap-table td:first-child { color: var(--navy); font-weight: 850; white-space: nowrap; }
+    .risk-box {
+      display: grid; grid-template-columns: 38px 1fr; gap: 10px; margin-top: 20px; padding: 17px;
+      border: 1px solid #dab7ba; border-radius: 13px; background: var(--rose-soft); color: #65363a;
+    }
+    .risk-box .mark { font-weight: 900; font-size: 1.25rem; }
+    .risk-box p { margin: 0; }
+    .action-line { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 16px; }
+    .action-line span { padding: 6px 9px; border-radius: 7px; background: var(--amber-soft); color: #754516; font-size: .78rem; font-weight: 750; }
+
+    .cycle {
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin: 18px 0 26px;
+    }
+    .cycle div { position: relative; padding: 16px 9px; border-radius: 12px; text-align: center; background: var(--navy); color: white; font-size: .84rem; font-weight: 800; }
+    .cycle div:not(:last-child)::after { content: "→"; position: absolute; right: -11px; top: 50%; z-index: 2; transform: translateY(-50%); color: var(--amber); font-size: 1.1rem; }
+    .cycle small { display: block; margin-top: 5px; color: #c7dfe2; font-weight: 500; }
+
+    .priority-band { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .priority-band .phase { padding: 20px; border-radius: var(--radius); background: var(--surface); border-top: 5px solid var(--teal); box-shadow: var(--shadow); }
+    .priority-band .phase:nth-child(2) { border-top-color: var(--amber); }
+    .priority-band .phase:nth-child(3) { border-top-color: var(--rose); }
+    .phase .time { color: var(--muted); font-size: .78rem; font-weight: 850; letter-spacing: .06em; }
+    .phase ul { margin: 10px 0 0; padding-left: 19px; font-size: .86rem; }
+    .phase li + li { margin-top: 5px; }
+
+    .metric-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .metric { padding: 16px; border-radius: 13px; background: #eaf2f5; }
+    .metric strong { display: block; margin-bottom: 5px; color: var(--navy); }
+    .metric span { color: #4f636c; font-size: .82rem; }
+
+    .source-list { display: grid; gap: 9px; }
+    .source-item { padding: 14px 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); font-size: .86rem; }
+    .source-item strong { color: var(--navy); }
+    .footer { margin-top: 55px; padding: 24px 0 0; border-top: 1px solid var(--line); color: var(--muted); font-size: .78rem; }
+
+    @media (max-width: 960px) {
+      .shell { grid-template-columns: 1fr; }
+      .sidebar { display: none; }
+      .analysis-grid, .metric-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .cycle { grid-template-columns: 1fr; }
+      .cycle div:not(:last-child)::after { content: "↓"; top: auto; right: 50%; bottom: -16px; transform: translateX(50%); }
+    }
+    @media (max-width: 680px) {
+      .hero-inner, .shell { padding-left: 18px; padding-right: 18px; }
+      .hero-inner { padding-top: 52px; }
+      .card-grid, .analysis-grid, .priority-band, .metric-grid { grid-template-columns: 1fr; }
+      .domain-head { grid-template-columns: 50px 1fr; padding: 22px 20px; }
+      .domain-head .index { width: 47px; height: 47px; border-radius: 12px; font-size: 1.3rem; }
+      .domain-body { padding: 22px 18px 26px; }
+      .shift { grid-template-columns: 1fr; }
+      .shift .arrow { transform: rotate(90deg); text-align: center; }
+      table { display: block; overflow-x: auto; }
+    }
+
+    @media print {
+      @page { size: A4; margin: 15mm 13mm; }
+      body { background: white; font-size: 10pt; }
+      .hero { border-bottom-width: 3px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .hero-inner { padding: 30px 20px; }
+      .hero h1 { font-size: 31pt; }
+      .hero-actions, .sidebar { display: none; }
+      .shell { display: block; max-width: none; padding: 20px 0; }
+      .report-section { margin-bottom: 34px; }
+      .domain, .card, .lead, .phase { box-shadow: none; }
+      .domain { break-before: page; }
+      .domain-head, th, .cycle div { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .card, .mini, .evidence-box, .risk-box, table { break-inside: avoid; }
+      a { color: inherit; text-decoration: none; }
+      a[href^="http"]::after { content: ""; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">Team Lead Synthesis · Education Policy Brief</p>
+      <h1>Science: A New Golden Age<span>교육적 재해석과 한국형 실행 프레임</span></h1>
+      <p class="dek">백악관 과학기술정책 보고서를 AI·컴퓨터과학·데이터 리터러시·과학·수학·STEM 교육의 여섯 관점에서 병렬 분석하고, 교육과정·수업·평가·교원·인프라·형평성의 공통 과제로 종합했다.</p>
+      <div class="meta-row">
+        <span>팀장 종합 보고서</span><span>기준일 2026.07.23</span><span>원문 123쪽 + FY2028 부록</span><span>한국어</span>
+      </div>
+      <div class="hero-actions">
+        <a class="button primary" href="#executive">핵심 결론 보기</a>
+        <a class="button" href="https://www.whitehouse.gov/science/" target="_blank" rel="noopener">백악관 웹 원문</a>
+        <a class="button" href="https://www.whitehouse.gov/wp-content/uploads/2026/07/Science-A-New-Golden-Age.pdf" target="_blank" rel="noopener">백악관 원문 PDF</a>
+        <button class="button" type="button" onclick="window.print()">인쇄·PDF 저장</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="shell">
+    <aside class="sidebar" aria-label="보고서 목차">
+      <div class="sidebox">
+        <strong>CONTENTS</strong>
+        <nav id="toc">
+          <a href="#executive">종합 결론</a>
+          <a href="#method">분석 방법</a>
+          <a href="#ai">1. AI 교육</a>
+          <a href="#cs">2. 컴퓨터과학 교육</a>
+          <a href="#data">3. 데이터 리터러시</a>
+          <a href="#science">4. 과학 교육</a>
+          <a href="#math">5. 수학 교육</a>
+          <a href="#stem">6. STEM 교육</a>
+          <a href="#synthesis">분야 간 종합</a>
+          <a href="#roadmap">실행 로드맵</a>
+          <a href="#sources">출처</a>
+        </nav>
+        <p class="side-source">표시 원칙<br><span class="badge direct">원문 근거</span><span class="badge infer">교육적 추론</span></p>
+      </div>
+    </aside>
+
+    <main id="main">
+      <section id="executive" class="report-section">
+        <p class="section-kicker">Executive synthesis</p>
+        <h2>팀장 종합 결론</h2>
+        <div class="lead">
+          이 보고서를 교육적으로 읽을 때 가장 중요한 변화는 <strong>“더 많은 지식을 가르치는 것”이 아니라 “좋은 질문을 고르고, 실제로 만들고 실험하며, 데이터를 남기고, 결과를 검증·재현하고, 사회에 번역하는 능력”을 교육의 완결 단위로 삼는 것</strong>이다. AI는 이 전환을 가속하지만, 검증·수학적 추론·과학적 판단·숙련된 손의 중요성을 없애지 않는다. 오히려 그 가치를 높인다.
+        </div>
+
+        <div class="note">
+          <strong>해석상의 전제:</strong> 원문은 교육정책 보고서가 아니라 미국의 과학기술·R&amp;D 체계 개혁 보고서다. 따라서 아래의 교육과정·수업·평가 제안은 원문의 직접 권고가 아니라, 원문이 제시한 연구 생태계 변화에서 도출한 교육적 추론이다.
+        </div>
+
+        <div class="card-grid" aria-label="다섯 가지 핵심 전환">
+          <article class="card"><span class="number">01</span><h3>사용자에서 검증 가능한 공동 창작자로</h3><p>AI 활용법만 익히는 교육을 넘어, 문제 설정·모델 선택·데이터 계보·결과 검증·인간 책임을 함께 다룬다.</p></article>
+          <article class="card"><span class="number">02</span><h3>논문형 산출물에서 재현 가능한 과정으로</h3><p>정답·보고서의 완성도보다 코드, 데이터, 실험 기록, 실패와 수정, 독립 재현을 평가한다.</p></article>
+          <article class="card"><span class="number">03</span><h3>교과 분절에서 임무 중심 통합으로</h3><p>AI·수학·과학·공학·제조를 실제 문제의 전체 수명주기 안에서 연결하되, 각 학문의 핵심 개념을 희석하지 않는다.</p></article>
+          <article class="card"><span class="number">04</span><h3>학력 경로에서 다중 역량 경로로</h3><p>대학원 중심 사다리와 병행해 도제, 커뮤니티 칼리지, 산업 자격, 메이커 활동, 이동 가능한 장학·자격을 인정한다.</p></article>
+          <article class="card"><span class="number">05</span><h3>학교 단독에서 지역 혁신 생태계로</h3><p>학교·대학·연구소·기업·직업교육기관이 장비, 데이터, 멘토, 실험공간을 공동 이용하는 지역 허브를 구축한다.</p></article>
+          <article class="card"><span class="number">06</span><h3>확대 일변도에서 자기개선 체계로</h3><p>교육정책도 메타과학처럼 프로그램별 성과와 부작용을 비교하고, 근거가 약한 사업은 수정·중단할 수 있어야 한다.</p></article>
+        </div>
+
+        <h3 style="margin-top:26px">교육의 새로운 완결 단위</h3>
+        <div class="cycle" aria-label="문제 설정부터 사회적 번역까지의 교육 순환">
+          <div>문제 설정<small>왜 중요한가</small></div>
+          <div>제작·실험<small>코드·모형·장비</small></div>
+          <div>데이터화<small>맥락·메타데이터</small></div>
+          <div>검증·재현<small>오류·불확실성</small></div>
+          <div>번역·성찰<small>현장 적용·책임</small></div>
+        </div>
+
+        <div class="critical note">
+          <strong>균형이 필요한 지점:</strong> 원문의 ‘능력주의’, DEI 비판, 외국인 연구인력·연구보안, 국가 기술우위 프레임을 교육에 기계적으로 옮기면 선발 편향, 국제협력 위축, 시민교육의 약화가 생길 수 있다. 한국 적용에서는 <em>높은 기대·탁월성</em>과 <em>접근 기회·배경 다양성·공공성</em>을 동시에 측정해야 한다.
+        </div>
+      </section>
+
+      <section id="method" class="report-section">
+        <p class="section-kicker">Analytical frame</p>
+        <h2>분석 방법과 근거 읽기</h2>
+        <div class="card-grid">
+          <article class="card"><span class="badge direct">원문 근거</span><h3>보고서가 실제로 말한 것</h3><p>연구비 배분, 새로운 연구기관, 제조·숙련, AI-for-science, 데이터·검증 인프라, FY2028 R&amp;D 우선순위를 장·절·쪽수에 따라 요약했다.</p></article>
+          <article class="card"><span class="badge infer">교육적 추론</span><h3>교육으로 번역한 것</h3><p>교육목표, 교육과정, 교수학습, 평가, 교원역량, 인프라, 학교급별 실행안을 별도로 도출했다.</p></article>
+        </div>
+        <div class="analysis-grid" style="margin-top:15px">
+          <article class="mini"><h3>목표</h3><p>어떤 학습자·시민·전문가를 길러야 하는가?</p></article>
+          <article class="mini"><h3>내용</h3><p>새로 강화할 개념·기능·태도는 무엇인가?</p></article>
+          <article class="mini"><h3>교수학습</h3><p>어떤 문제·도구·협업 구조가 필요한가?</p></article>
+          <article class="mini"><h3>평가</h3><p>결과뿐 아니라 과정·검증·전이를 어떻게 볼 것인가?</p></article>
+          <article class="mini"><h3>역량·인프라</h3><p>교원, 장비, 데이터, 컴퓨팅, 파트너십은 무엇이 필요한가?</p></article>
+          <article class="mini"><h3>공공성</h3><p>형평성, 윤리, 안전, 개방성, 연구보안을 어떻게 균형화할 것인가?</p></article>
+        </div>
+        <div class="level-block">
+          <h3>원문 핵심 근거 지도</h3>
+          <table class="source-table">
+            <thead><tr><th>원문 구간</th><th>핵심 메시지</th><th>주요 교육 연결</th></tr></thead>
+            <tbody>
+              <tr><td>Ch. II, 본문 pp.13–32</td><td>연구 행정부담, 합의형 동료평가, 재현성 위기, 장기·신속 지원과 새로운 기관</td><td>탐구 자율성, 평가 다변화, 실패·복제의 교육적 가치</td></tr>
+              <tr><td>Ch. III, pp.33–46</td><td>규제 샌드박스, 시험장, 연방 장비 개방, 산학연·지역 협력</td><td>공유 실험실, 현장 기반 프로젝트, 지역 교육 생태계</td></tr>
+              <tr><td>Ch. IV, pp.47–56</td><td>암묵지, 제조·숙련, 도제, 커뮤니티 칼리지, 지역 클러스터</td><td>메이킹·직업교육·실험 숙련·다중 진로 경로</td></tr>
+              <tr><td>Ch. V, pp.57–70</td><td>AI-for-science, Genesis Mission, 과학 데이터, 자율실험실, Gold Standard Science</td><td>AI·데이터·검증·수학·과학 교육의 재설계</td></tr>
+              <tr><td>FY2028 Annex, pp.85–104</td><td>기초연구, 물리·수학·CS·공학, 국가 임무, K–12 STEM 인재·현장학습, 메타과학</td><td>우선순위와 실행 로드맵, 교육사업 자체의 증거 기반 개선</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="ai" class="report-section domain">
+        <header class="domain-head"><div class="index">01</div><div><h2>AI 교육</h2><p>도구 사용 교육에서 인간 책임을 지는 과학적 공동 탐구 교육으로</p></div></header>
+        <div class="domain-body">
+          <div class="evidence-box"><span class="badge direct">원문 근거</span><span class="badge source">Ch. V pp.59–66</span><span class="badge source">Annex pp.90–94</span><span class="badge source">Annex pp.98–100, 104</span><h3>보고서가 제시한 변화</h3><ul><li>AI가 문헌 합성, 가설 생성, 실험 설계, 대규모 데이터 분석, 과학 커뮤니케이션과 검증을 가속한다고 본다.</li><li>Genesis Mission은 최소 20개 국가 과학기술 도전과제, 과학용 파운데이션 모델, American Science Cloud, AI-ready 데이터, 자동화 실험 인프라를 결합한다.</li><li>AI 적용에 적합한 문제의 조건으로 큰 탐색공간, 충분한 구조화 데이터, 진전을 판정할 명확한 벤치마크를 제시한다. 즉 모든 문제에 AI를 붙이는 접근을 지지하지 않는다.</li><li>AI가 논문·연구비 신청서·동료심사 투고물의 양만 늘리면 과학의 생산성 역설이 심화될 수 있으므로 재현성·투명성·검증 인프라를 병행해야 한다.</li><li>부록은 K–12 STEM 심화기회, 실질적 연구배치, 고교 단계의 메이커·기술 경험과 산업의 유급 인턴십·멘토링·장비 지원을 AI 시대 인재개발의 일부로 연결한다.</li></ul></div>
+          <div class="analysis-grid">
+            <article class="mini"><span class="badge infer">교육목표</span><h3>책임 있는 공동 창작자</h3><ul><li>AI의 작동 원리와 한계 이해</li><li>문제에 AI가 필요한지 판단</li><li>결과의 근거·오류·불확실성 검증</li><li>인간 책임과 공공 영향을 설명</li></ul></article>
+            <article class="mini"><span class="badge infer">교육과정</span><h3>네 층위의 나선형 구성</h3><ul><li>인간 중심·책임</li><li>데이터와 모델의 기초</li><li>도메인별 AI 적용</li><li>AI 시스템 설계·반복 개선</li></ul></article>
+            <article class="mini"><span class="badge infer">교수학습</span><h3>AI가 포함된 탐구 루프</h3><ul><li>AI 없는 기준선과 비교</li><li>모델 간 결과 대조</li><li>실험·현장 데이터로 검증</li><li>실패 로그와 의사결정 기록</li></ul></article>
+            <article class="mini"><span class="badge infer">평가</span><h3>프롬프트보다 판단</h3><ul><li>문제 정의의 타당성</li><li>출처·데이터 계보</li><li>반례·오류 탐색</li><li>구두 방어와 독립 재현</li></ul></article>
+            <article class="mini"><span class="badge infer">교원역량</span><h3>교과+AI 공동 전문성</h3><ul><li>AI 기초와 교과 지식의 결합</li><li>검증 가능한 과제 설계</li><li>학생 데이터·저작권·안전</li><li>AI 사용 공개 규칙</li></ul></article>
+            <article class="mini"><span class="badge infer">인프라</span><h3>공유형 접근</h3><ul><li>안전한 교육용 모델·샌드박스</li><li>학습용 컴퓨팅·데이터</li><li>실험기기와 개방형 인터페이스</li><li>지역별 접근성 보정</li></ul></article>
+          </div>
+          <div class="level-block"><h3>학교급별 권고</h3><table class="level-table"><thead><tr><th>수준</th><th>핵심 경험</th><th>대표 산출물</th></tr></thead><tbody>
+            <tr><td>K–12</td><td>AI가 만든 설명·분류·예측을 실제 관찰과 대조하고, 편향·개인정보·인간 책임을 토론한다.</td><td>AI 결과 검증 카드, 모델 비교 기록, 작은 센서·분류 프로젝트</td></tr>
+            <tr><td>대학</td><td>전공별 AI-for-science 스튜디오를 운영하고, 모델·데이터·실험의 전체 파이프라인을 설계한다.</td><td>재현 패키지, 데이터시트, 모델카드, 연구 프로토콜</td></tr>
+            <tr><td>직업·평생</td><td>직무 자동화의 수용자가 아니라 작업흐름을 진단·재설계하고 결과를 감사하는 역량을 기른다.</td><td>직무별 AI 위험평가, 개선 전후 성과·오류 비교</td></tr>
+          </tbody></table></div>
+          <div class="risk-box"><div class="mark">!</div><p><strong>핵심 위험:</strong> 자동화 편향, AI 출력의 권위화, 컴퓨팅 접근 격차, 민감 데이터 유출, 과제 대량생산이 생길 수 있다. “AI를 썼는가”보다 “AI가 필요했는가, 무엇으로 검증했는가, 누가 책임지는가”를 평가해야 한다.</p></div>
+          <div class="action-line"><span>단기: AI 사용 공개 규약</span><span>중기: 교과별 AI 탐구 모듈</span><span>장기: 교육용 Science Cloud</span></div>
+        </div>
+      </section>
+
+      <section id="cs" class="report-section domain">
+        <header class="domain-head"><div class="index">02</div><div><h2>컴퓨터과학 교육</h2><p>코딩 기능에서 신뢰 가능한 과학·공학 인프라를 설계하는 학문으로</p></div></header>
+        <div class="domain-body">
+          <div class="evidence-box"><span class="badge direct">원문 근거</span><span class="badge source">Ch. I pp.3–11</span><span class="badge source">Ch. V pp.61–70</span><span class="badge source">Annex pp.87–94</span><h3>보고서가 제시한 변화</h3><ul><li>AI·컴퓨팅이 기초연구를 산업 쪽으로 이동시키고 연구의 자본집약성과 학제성을 높였다고 진단한다.</li><li>고성능 컴퓨팅, 도메인 파운데이션 모델, 데이터·소프트웨어 공통환경, 로봇·자율실험실, 개방형 장비 인터페이스를 국가 연구 인프라로 본다.</li><li>알고리즘·계산복잡도, 정보이론, 암호·포스트양자암호, 최적화·제어, 확률·통계·데이터과학, HPC를 물리과학·수학·공학과 함께 FY2028 기초연구 우선영역으로 명시한다.</li></ul></div>
+          <div class="analysis-grid">
+            <article class="mini"><span class="badge infer">교육목표</span><h3>컴퓨팅 시스템 사고</h3><ul><li>알고리즘과 추상화</li><li>데이터·네트워크·보안</li><li>소프트웨어 신뢰성</li><li>하드웨어–소프트웨어 연결</li></ul></article>
+            <article class="mini"><span class="badge infer">교육과정</span><h3>기초+신흥기술</h3><ul><li>자료구조·알고리즘·OS·네트워크</li><li>분산·클라우드·HPC</li><li>AI 시스템·로보틱스</li><li>재현 컴퓨팅·연구보안</li></ul></article>
+            <article class="mini"><span class="badge infer">교수학습</span><h3>실제 시스템 제작</h3><ul><li>오픈소스 협업</li><li>센서·로봇·과학장비 연동</li><li>성능·비용·에너지 트레이드오프</li><li>장애 주입과 디버깅</li></ul></article>
+            <article class="mini"><span class="badge infer">평가</span><h3>작동성과 설명 가능성</h3><ul><li>테스트·버전관리·문서화</li><li>보안·복구·성능</li><li>동료 코드리뷰</li><li>독립 실행 가능한 패키지</li></ul></article>
+            <article class="mini"><span class="badge infer">교원역량</span><h3>도메인 연결</h3><ul><li>CS 핵심개념의 깊이</li><li>AI 생성 코드 검증</li><li>과학·수학 교사와 공동수업</li><li>산업도구의 교육적 단순화</li></ul></article>
+            <article class="mini"><span class="badge infer">인프라</span><h3>계층형 실습환경</h3><ul><li>브라우저 기반 저사양 실습</li><li>공유 GPU·HPC 큐</li><li>물리 컴퓨팅 장비</li><li>격리된 보안 샌드박스</li></ul></article>
+          </div>
+          <div class="level-block"><h3>학교급별 권고</h3><table class="level-table"><thead><tr><th>수준</th><th>핵심 경험</th><th>대표 산출물</th></tr></thead><tbody>
+            <tr><td>K–12</td><td>블록·텍스트 코딩을 넘어 데이터, 네트워크, 사이버안전, 물리 컴퓨팅, 인간-컴퓨터 상호작용을 연결한다.</td><td>센서 시스템, 테스트가 포함된 프로그램, 알고리즘 비교표</td></tr>
+            <tr><td>대학</td><td>CS 전공 핵심을 유지하면서 과학컴퓨팅·MLOps·로보틱스·재현성 트랙과 타 전공 공동 캡스톤을 운영한다.</td><td>컨테이너형 연구환경, API·테스트 명세, 운영·보안 보고서</td></tr>
+            <tr><td>직업·평생</td><td>짧은 코딩 강좌보다 자동화 시스템의 운영·통합·감사·유지보수 역량을 직무별로 인증한다.</td><td>산업 자동화 워크플로, 장애 대응 시나리오, 마이크로자격</td></tr>
+          </tbody></table></div>
+          <div class="risk-box"><div class="mark">!</div><p><strong>핵심 위험:</strong> AI 코딩도구가 문법 장벽을 낮추지만 기초 추상화와 디버깅 능력을 약화할 수 있다. 제품 종속적 ‘툴 교육’이 아니라, 도구가 바뀌어도 남는 컴퓨팅 개념과 검증 습관을 중심에 둬야 한다.<br><br>또한 원문은 외국인 CS·수학 박사 인력을 연구보안 문제와 연결하고, 표준화 검사·경진대회를 인재발굴 수단으로 강조한다. 한국 적용에서는 국적이 아닌 행위·위험 기반 보안, 국제협력의 개방성, 사교육·지역격차를 보정하는 다중 증거 선발을 원칙으로 삼아야 한다.</p></div>
+          <div class="action-line"><span>단기: CS 핵심+AI 교차표</span><span>중기: 과학컴퓨팅 공동 캡스톤</span><span>장기: 지역 공유 컴퓨팅 랩</span></div>
+        </div>
+      </section>
+
+      <section id="data" class="report-section domain">
+        <header class="domain-head"><div class="index">03</div><div><h2>데이터 리터러시 교육</h2><p>차트 읽기에서 데이터의 생성·계보·불확실성·재사용을 판단하는 능력으로</p></div></header>
+        <div class="domain-body">
+          <div class="evidence-box"><span class="badge direct">원문 근거</span><span class="badge source">Ch. II pp.18–20</span><span class="badge source">Ch. V pp.63–67</span><span class="badge source">Annex pp.89, 92–94, 101</span><h3>보고서가 제시한 변화</h3><ul><li>재현성 위기의 원인으로 선택적 출판, 불투명한 방법, 부정적 결과의 소실, 잘못 정렬된 인센티브를 지적한다.</li><li>연방 데이터 개방과 더불어 실험 기록, 실패·부정적 결과, 실험실 운영데이터의 큐레이션과 장기 보존을 강조한다.</li><li>기계가 감사할 수 있는 재현 패키지, 표준화된 데이터 형식, 도구 간 상호운용성을 제안한다.</li><li>통계·확률·데이터과학의 기초를 우선영역으로 두고, 학생·개인 연구자·소규모 팀의 데이터·컴퓨팅 접근장벽을 낮추라고 한다.</li><li>메타과학을 위해 신청자료·심사행동·점수·후속성과를 연결하는 장기 데이터 인프라와 이를 운영할 데이터과학자·소프트웨어 엔지니어 역량을 요구한다.</li></ul></div>
+          <div class="analysis-grid">
+            <article class="mini"><span class="badge infer">교육목표</span><h3>데이터 판단의 전 과정</h3><ul><li>누가 왜 생성했는가</li><li>무엇이 빠졌는가</li><li>어떤 변환을 거쳤는가</li><li>어디까지 주장할 수 있는가</li></ul></article>
+            <article class="mini"><span class="badge infer">교육과정</span><h3>통계+거버넌스</h3><ul><li>표본·측정·편향·불확실성</li><li>메타데이터·출처·버전</li><li>프라이버시·동의·라이선스</li><li>시각화·서사·오도</li></ul></article>
+            <article class="mini"><span class="badge infer">교수학습</span><h3>지저분한 실제 데이터</h3><ul><li>결측·오류·형식 불일치 처리</li><li>같은 데이터의 상반된 해석</li><li>부정적 결과 기록</li><li>데이터셋 카드 작성</li></ul></article>
+            <article class="mini"><span class="badge infer">평가</span><h3>정답보다 추적 가능성</h3><ul><li>원자료→결론의 감사선</li><li>분석 선택의 정당화</li><li>불확실성 표현</li><li>타인의 재분석 성공률</li></ul></article>
+            <article class="mini"><span class="badge infer">교원역량</span><h3>교과 횡단 설계</h3><ul><li>수학·과학·사회 데이터 연결</li><li>시각화 오독 진단</li><li>학생 데이터 윤리</li><li>AI 학습데이터 비판</li></ul></article>
+            <article class="mini"><span class="badge infer">인프라</span><h3>교육용 데이터 신뢰층</h3><ul><li>익명화·권한 관리</li><li>버전형 데이터 저장소</li><li>공통 메타데이터</li><li>저작권·출처 자동 표시</li></ul></article>
+          </div>
+          <div class="level-block"><h3>학교급별 권고</h3><table class="level-table"><thead><tr><th>수준</th><th>핵심 경험</th><th>대표 산출물</th></tr></thead><tbody>
+            <tr><td>K–12</td><td>학생이 직접 데이터를 만들고, 측정 규칙·결측·표본 차이가 결론을 어떻게 바꾸는지 비교한다.</td><td>데이터 일지, 오도 가능성 주석이 붙은 시각화, 재분석 보고서</td></tr>
+            <tr><td>대학</td><td>모든 전공에서 연구데이터 관리, 통계적 추론, 재현 노트북, 데이터 윤리를 필수 기초로 운영한다.</td><td>FAIR형 데이터 패키지, 분석 코드, 부정적 결과 메모</td></tr>
+            <tr><td>직업·평생</td><td>업무 KPI·대시보드·AI 추천을 비판적으로 읽고, 데이터 품질과 의사결정 책임을 연결한다.</td><td>대시보드 감사표, 데이터 품질 개선안, 직무 의사결정 기록</td></tr>
+          </tbody></table></div>
+          <div class="risk-box"><div class="mark">!</div><p><strong>핵심 위험:</strong> ‘데이터 기반’이라는 말이 가치판단을 숨길 수 있다. 데이터 리터러시는 숫자를 신뢰하는 법이 아니라, 생성 조건·비가시성·권력관계를 묻고 불확실한 상황에서 책임 있게 결정하는 법이어야 한다.</p></div>
+          <div class="action-line"><span>단기: 전 교과 데이터 출처표</span><span>중기: 재현 노트북 평가</span><span>장기: 교육 데이터 신탁</span></div>
+        </div>
+      </section>
+
+      <section id="science" class="report-section domain">
+        <header class="domain-head"><div class="index">04</div><div><h2>과학 교육</h2><p>‘정답으로서의 과학’에서 불확실성을 다루고 지식을 검증하는 실천으로</p></div></header>
+        <div class="domain-body">
+          <div class="evidence-box"><span class="badge direct">원문 근거</span><span class="badge source">Ch. II pp.15–20</span><span class="badge source">Ch. IV pp.47–56</span><span class="badge source">Ch. V pp.58–67</span><span class="badge source">Annex pp.91–93</span><h3>보고서가 제시한 변화</h3><ul><li>과학적 생산량의 증가가 중대한 발견의 가속으로 이어지지 않았으며, 재현 실패와 과도한 확신이 신뢰를 약화했다고 진단한다.</li><li>과학은 논문 속 명시지뿐 아니라 실험실에서 사람 사이에 전해지는 암묵지·기구 운용·손의 숙련에 의존한다고 강조한다.</li><li>AI가 문헌종합, 가설생성, 실험설계, 데이터분석, 검증까지 과학 전 과정을 바꾸며, Genesis Mission은 AI-ready 데이터와 자율실험실·과학기기를 결합한다고 본다.</li><li>Gold Standard Science의 원칙으로 재현성, 투명성, 데이터 공유, 반증 가능성, 불확실성 표현을 제시한다.</li></ul></div>
+          <div class="analysis-grid">
+            <article class="mini"><span class="badge infer">교육목표</span><h3>지식의 생성·검증 이해</h3><ul><li>관찰과 설명의 구분</li><li>증거의 누적성과 잠정성</li><li>반증·복제·수정</li><li>과학과 정책판단의 경계</li></ul></article>
+            <article class="mini"><span class="badge infer">교육과정</span><h3>탐구의 전 생애</h3><ul><li>질문·모형·실험설계</li><li>측정·불확실성·재현</li><li>공학설계·제조·확장</li><li>과학사·과학윤리·STS</li></ul></article>
+            <article class="mini"><span class="badge infer">교수학습</span><h3>복제와 제작</h3><ul><li>유명 실험의 조건 변형</li><li>다른 팀의 결과 재현</li><li>기구 제작·보정·수리</li><li>AI 예측과 실제 측정 대조</li></ul></article>
+            <article class="mini"><span class="badge infer">평가</span><h3>주장–증거–추론–한계</h3><ul><li>실험노트의 완전성</li><li>오차 분석과 반례</li><li>재현 가능 프로토콜</li><li>결론 수정의 정직성</li></ul></article>
+            <article class="mini"><span class="badge infer">교원역량</span><h3>탐구 코칭 전문성</h3><ul><li>실험 실패 진단</li><li>통계·데이터·AI 연계</li><li>위험관리와 연구윤리</li><li>논쟁적 과학의 숙의</li></ul></article>
+            <article class="mini"><span class="badge infer">인프라</span><h3>열린 실험 접근</h3><ul><li>학교 메이커·습식 실험실</li><li>대학·연구소 장비 공유</li><li>원격·클라우드 실험</li><li>안전·유지보수 인력</li></ul></article>
+          </div>
+          <div class="level-block"><h3>학교급별 권고</h3><table class="level-table"><thead><tr><th>수준</th><th>핵심 경험</th><th>대표 산출물</th></tr></thead><tbody>
+            <tr><td>K–12</td><td>현상 중심 수업 안에서 학생이 모형을 만들고, 데이터를 수집하며, 다른 팀의 결과를 검토·복제한다.</td><td>실험노트, 오차지도, 동료 팀 복제 확인서</td></tr>
+            <tr><td>대학</td><td>‘새로운 결과’만이 아니라 방법 검증, 기구 제작, 데이터 큐레이션, 재현 연구에도 학점·연구실적을 부여한다.</td><td>등록된 연구계획, 복제 연구, 장비·프로토콜 공개물</td></tr>
+            <tr><td>직업·평생</td><td>시민과 기술인력이 건강·환경·에너지 주장에 포함된 증거와 불확실성을 판단하고 현장 측정에 참여한다.</td><td>시민과학 데이터, 현장 품질관리 기록, 과학 주장 검증표</td></tr>
+          </tbody></table></div>
+          <div class="risk-box"><div class="mark">!</div><p><strong>핵심 위험:</strong> ‘과학의 오류 가능성’을 과학 전체에 대한 불신으로 가르치거나, ‘정치적 책임성’을 특정 권력의 결론 통제로 오해해서는 안 된다. 과학적 자율성, 공개 검증, 민주적 책무성을 함께 설계해야 한다.</p></div>
+          <div class="action-line"><span>단기: 복제 실험 1회 의무</span><span>중기: 실험기술 교사연수</span><span>장기: 학교–연구소 장비망</span></div>
+        </div>
+      </section>
+
+      <section id="math" class="report-section domain">
+        <header class="domain-head"><div class="index">05</div><div><h2>수학 교육</h2><p>계산 숙련을 넘어 모델·증명·불확실성·검증을 지탱하는 기반 언어로</p></div></header>
+        <div class="domain-body">
+          <div class="evidence-box"><span class="badge direct">원문 근거</span><span class="badge source">Ch. I pp.7–11</span><span class="badge source">Ch. V.6 pp.66–67</span><span class="badge source">Annex pp.87–90</span><h3>보고서가 제시한 변화</h3><ul><li>AI가 복잡한 자연현상을 예측·시뮬레이션하고 방대한 가설 공간을 탐색하지만, 데이터·실험·검증의 병목은 남는다고 본다.</li><li>수학은 ‘발견보다 검증이 쉬운’ 비대칭 때문에 AI 검증의 중요한 시험대가 될 수 있다고 본다. 대규모 언어모델은 자연어 수학을 형식언어로 옮기는 비용을 낮추고, 증명보조기는 형식화된 증명을 기계적으로 검증하는 역할로 구분한다.</li><li>수학자의 역할이 증명전략 조정자, 영역 전문가, AI 도구를 지휘하는 실무자, 기계검증형 협업체계의 설계자로 분화할 수 있다고 전망한다.</li><li>FY2028 기초연구에서 수학·통계·컴퓨터과학을 전략기술의 공통 기반으로 둔다.</li></ul></div>
+          <div class="analysis-grid">
+            <article class="mini"><span class="badge infer">교육목표</span><h3>표현–추론–검증</h3><ul><li>현상을 수학적으로 구조화</li><li>가정·변수·제약 명시</li><li>증명과 경험적 근거 구분</li><li>결과의 민감도 판단</li></ul></article>
+            <article class="mini"><span class="badge infer">교육과정</span><h3>핵심 기초의 재배열</h3><ul><li>함수·변화·최적화</li><li>선형대수·이산수학</li><li>확률·통계·인과</li><li>수치해석·형식 논리</li></ul></article>
+            <article class="mini"><span class="badge infer">교수학습</span><h3>모형의 경쟁과 개선</h3><ul><li>같은 현상의 여러 표현</li><li>AI 생성 풀이의 오류 찾기</li><li>자료로 모수 추정</li><li>시뮬레이션과 실제값 비교</li></ul></article>
+            <article class="mini"><span class="badge infer">평가</span><h3>답보다 논증</h3><ul><li>가정의 타당성</li><li>풀이의 논리적 연결</li><li>다른 방법과의 비교</li><li>도구 없이 구두 방어</li></ul></article>
+            <article class="mini"><span class="badge infer">교원역량</span><h3>데이터·컴퓨팅 연계</h3><ul><li>코드 기반 탐구</li><li>형식 증명 도구 이해</li><li>과학·CS 맥락 설계</li><li>AI 오답 진단</li></ul></article>
+            <article class="mini"><span class="badge infer">인프라</span><h3>이중 도구 환경</h3><ul><li>종이·화이트보드 추론</li><li>CAS·코드·시뮬레이션</li><li>증명 보조기</li><li>실제 공개 데이터</li></ul></article>
+          </div>
+          <div class="level-block"><h3>학교급별 권고</h3><table class="level-table"><thead><tr><th>수준</th><th>핵심 경험</th><th>대표 산출물</th></tr></thead><tbody>
+            <tr><td>K–12</td><td>실제 현상을 표·그래프·식·코드로 번역하고, AI 풀이의 가정과 오류를 설명한다.</td><td>다중 표현 포트폴리오, 오답 반박, 작은 확률·모형 실험</td></tr>
+            <tr><td>대학</td><td>모든 STEM 전공에 선형대수·확률·최적화·수치계산·불확실성 분석을 연결하고 형식 검증 경험을 제공한다.</td><td>모델 명세, 민감도 분석, 증명·계산 재현 패키지</td></tr>
+            <tr><td>직업·평생</td><td>직무의 품질·위험·비용·예측을 수량화하고, 대시보드와 AI 예측의 한계를 판단한다.</td><td>직무 수리 모델, 위험 범위, 의사결정 근거표</td></tr>
+          </tbody></table></div>
+          <div class="risk-box"><div class="mark">!</div><p><strong>핵심 위험:</strong> 기계가 형식증명을 수락했다는 사실은 학생이 개념과 논리를 이해하고 설명할 수 있음을 보장하지 않는다. AI가 중간 추론을 대신하면 사고 외주화가 생기고, 한국의 입시 환경에서는 형식검증이 정답주의를 더 강화할 수 있다. 자연어 설명·구두 방어·반례 탐색을 별도로 평가해야 한다.<br><br>또한 국가 경쟁력과 ‘최상위 인재’ 프레임만 강조하면 다수 학생의 수학적 시민성이 약화될 수 있다. 심화 기회의 확대와 함께 모든 학생의 접근성, 다양한 해결 전략, 늦게 발현되는 재능을 보장해야 한다.</p></div>
+          <div class="action-line"><span>단기: AI 풀이 검증 문항</span><span>중기: 데이터·모델링 필수화</span><span>장기: 형식추론 선택 트랙</span></div>
+        </div>
+      </section>
+
+      <section id="stem" class="report-section domain">
+        <header class="domain-head"><div class="index">06</div><div><h2>STEM 교육</h2><p>교과 묶음이 아니라 지역 문제를 발견에서 제작·확장까지 해결하는 생태계로</p></div></header>
+        <div class="domain-body">
+          <div class="evidence-box"><span class="badge direct">원문 근거</span><span class="badge source">Ch. III pp.38–46</span><span class="badge source">Ch. IV pp.47–56</span><span class="badge source">Annex pp.90–104</span><h3>보고서가 제시한 변화</h3><ul><li>중규모·공학집약·학제형 문제를 위해 X-Labs, ARPA형 조직, 집중연구기관과 산학연 컨소시엄을 제안한다.</li><li>시험장·연방시설·공유 클린룸·GMP·컴퓨팅을 스타트업과 외부 연구자에게 개방하고, 지역을 규제·혁신의 실험실로 본다.</li><li>도제, 현장 배치, 커뮤니티 칼리지, 숙련기술인, 제조 클러스터를 과학기술 생태계의 핵심으로 재평가한다.</li><li>전국적 인재발굴에 추론평가·경시대회·공학 포트폴리오·실제 기술작업을 활용하고, 기숙형 수학·과학 프로그램과 올림피아드형 심화기회를 확대하라고 한다.</li><li>대학·산업·정부 연구시설의 실질적 연구배치를 고품질 인재개발의 표준 요소로 보고 최소 한 학기 지속하도록 권고한다. 원문은 이 문장에서 교육단계를 특정하지 않으며, 고교의 메이커·직업·현장학습은 별도로 제시한다.</li></ul></div>
+          <div class="analysis-grid">
+            <article class="mini"><span class="badge infer">교육목표</span><h3>T자형 통합 역량</h3><ul><li>한 분야의 깊이</li><li>타 분야와의 공통 언어</li><li>설계·제작·검증</li><li>사회·윤리·사업화 판단</li></ul></article>
+            <article class="mini"><span class="badge infer">교육과정</span><h3>임무 중심 모듈</h3><ul><li>지역 에너지·환경·돌봄</li><li>로봇·반도체·바이오·우주</li><li>수학·데이터·CS 내재화</li><li>인문사회·디자인 결합</li></ul></article>
+            <article class="mini"><span class="badge infer">교수학습</span><h3>스튜디오+도제</h3><ul><li>팀 기반 설계 도전</li><li>산업·연구소 멘토</li><li>장비 사용·안전·품질</li><li>프로토타입 반복</li></ul></article>
+            <article class="mini"><span class="badge infer">평가</span><h3>통합성과 전이</h3><ul><li>문제 정의·이해관계자</li><li>학문별 개념의 정확성</li><li>프로토타입·검증</li><li>팀 기여·기술 문서</li></ul></article>
+            <article class="mini"><span class="badge infer">교원역량</span><h3>팀 티칭</h3><ul><li>공동 설계 시간</li><li>산업·연구소 겸임 멘토</li><li>프로젝트 관리</li><li>직업안전·윤리</li></ul></article>
+            <article class="mini"><span class="badge infer">인프라</span><h3>지역 공유 허브</h3><ul><li>메이커·습식·컴퓨팅 랩</li><li>장비 예약·원격 접속</li><li>대학·기업·학교 협약</li><li>농산어촌 이동형 랩</li></ul></article>
+          </div>
+          <div class="level-block"><h3>학교급별 권고</h3><table class="level-table"><thead><tr><th>수준</th><th>핵심 경험</th><th>대표 산출물</th></tr></thead><tbody>
+            <tr><td>K–12</td><td>실생활 문제에 S·T·E·M을 연결하되, 각 과목 성취기준과 역할을 명시한 장기 설계 프로젝트를 운영한다.</td><td>프로토타입, 시험 데이터, 설계 의사결정서, 지역 공개발표</td></tr>
+            <tr><td>대학</td><td>전공 깊이와 학제 스튜디오를 병행하고, 대학–기업–연구소 공동 연구·현장실습·도제를 정규학점화한다.</td><td>산학연 캡스톤, 기술이전·공공재 계획, 팀별 기여 기록</td></tr>
+            <tr><td>직업·평생</td><td>기술자·기능인·연구자가 함께 배우는 재교육 허브와 산업 인정형 누적 자격을 구축한다.</td><td>현장 개선 프로젝트, 장비 자격, 누적형 마이크로크레덴셜</td></tr>
+          </tbody></table></div>
+          <div class="risk-box"><div class="mark">!</div><p><strong>핵심 위험:</strong> ‘통합’이 각 학문의 깊이를 지우거나, 산업 수요가 교육목표를 독점할 수 있다. 프로젝트마다 학문별 핵심개념, 공공가치, 학생 선택권, 장비·멘토 접근의 지역 형평성을 명시해야 한다.<br><br>산학연 현장학습·도제는 무급노동 방지, 학생 안전·보험·노동시간, 멘토의 지도책임, 학생 산출물의 IP·데이터 권리, 특정 기업 제품교육으로의 종속 방지 조항을 표준협약에 포함해야 한다.</p></div>
+          <div class="action-line"><span>단기: 통합 프로젝트 루브릭</span><span>중기: 지역 STEM 공유허브</span><span>장기: 학습–연구–제조 클러스터</span></div>
+        </div>
+      </section>
+
+      <section id="synthesis" class="report-section">
+        <p class="section-kicker">Cross-domain synthesis</p>
+        <h2>여섯 분야 비교와 상호의존성</h2>
+        <table class="matrix">
+          <thead><tr><th>분야</th><th>핵심 전환</th><th>대표 학습실천</th><th>검증 신호</th><th>가장 큰 위험</th></tr></thead>
+          <tbody>
+            <tr><td><strong>AI</strong></td><td>사용 → 책임 있는 공동 창작</td><td>AI 예측과 실제 증거 대조</td><td>반례·출처·인간 책임</td><td>자동화 편향·접근 격차</td></tr>
+            <tr><td><strong>CS</strong></td><td>코딩 → 신뢰 가능한 시스템</td><td>테스트·버전·배포·장애 대응</td><td>독립 실행·복구 가능성</td><td>도구 종속·기초 약화</td></tr>
+            <tr><td><strong>데이터</strong></td><td>읽기 → 생성·계보·재사용 판단</td><td>지저분한 데이터 큐레이션</td><td>감사선·불확실성 표현</td><td>숫자의 권위화·프라이버시</td></tr>
+            <tr><td><strong>과학</strong></td><td>정답 → 잠정적 지식의 검증</td><td>복제 실험·기구 제작</td><td>재현·반증·오차 분석</td><td>오류 가능성의 불신화</td></tr>
+            <tr><td><strong>수학</strong></td><td>계산 → 모델·논증·검증</td><td>AI 풀이 비판·민감도 분석</td><td>가정·논리·범위의 명시</td><td>엘리트화·시민 수리력 약화</td></tr>
+            <tr><td><strong>STEM</strong></td><td>교과 묶음 → 문제 해결 생태계</td><td>장기 설계·현장·도제</td><td>개념 깊이+실제 전이</td><td>학문 희석·산업 편향</td></tr>
+          </tbody>
+        </table>
+
+        <div class="card-grid" style="margin-top:18px">
+          <article class="card"><h3>상호의존 구조</h3><p><strong>수학</strong>은 모델과 불확실성의 언어, <strong>컴퓨터과학</strong>은 실행 인프라, <strong>데이터 리터러시</strong>는 증거의 품질관리, <strong>과학</strong>은 경험적 검증, <strong>AI</strong>는 탐색·생성의 가속기, <strong>STEM</strong>은 이를 실제 문제에 통합하는 운영체계다.</p></article>
+          <article class="card"><h3>평가의 공통 원리</h3><p>최종 답만 채점하지 않는다. 문제 정의, 가정, 데이터 출처, 도구 사용, 실패와 수정, 팀 기여, 독립 재현, 사회적 영향까지 담는 <strong>과정 증거 포트폴리오</strong>가 필요하다.</p></article>
+          <article class="card"><h3>인재관의 공통 원리</h3><p>학력·소속보다 실제 기술과 성장 잠재력을 보되, 단일 시험점수로 다시 좁혀서는 안 된다. 시험, 포트폴리오, 경진·현장 수행, 멘토 평가를 다면적으로 결합한다.</p></article>
+          <article class="card"><h3>정책의 공통 원리</h3><p>새 과목 하나를 추가하는 방식보다 교원 공동설계 시간, 공유 장비·컴퓨팅, 데이터 규칙, 현장 파트너, 평가 개편을 묶은 생태계 투자가 우선이다.</p></article>
+        </div>
+      </section>
+
+      <section id="roadmap" class="report-section">
+        <p class="section-kicker">Korean implementation</p>
+        <h2>한국형 실행 로드맵</h2>
+        <p>2022 개정 교육과정의 디지털 기초소양·정보교육 확대, 2026년 AI 중점학교와 생애주기별 AI 교육 정책을 출발점으로 삼되, ‘도구 보급’에서 ‘검증 가능한 탐구 생태계’로 정책 초점을 옮긴다.</p>
+
+        <div class="priority-band">
+          <article class="phase"><p class="time">0–12개월 · 기반 정렬</p><h3>규칙과 기준부터</h3><ul><li>6개 분야 성취기준 교차표 작성</li><li>학생 AI 사용·출처·데이터 규약</li><li>재현·구두방어가 포함된 공통 루브릭</li><li>교원 대상 AI·데이터·실험 안전 기초연수</li><li>학교별 장비·컴퓨팅 접근성 진단</li></ul></article>
+          <article class="phase"><p class="time">1–3년 · 현장 확장</p><h3>수업과 인프라를 묶기</h3><ul><li>교과별 AI-for-learning 모듈과 통합 스튜디오</li><li>대학·연구소·기업 장비 공유 협약</li><li>지역 STEM 허브와 이동형 농산어촌 랩</li><li>복제연구·데이터 큐레이션 학점화</li><li>산업·연구소 멘토의 공동수업 체계</li></ul></article>
+          <article class="phase"><p class="time">3–5년 · 시스템 전환</p><h3>자기개선 생태계로</h3><ul><li>교육용 Science Cloud와 원격 실험망</li><li>학교–대학–직업교육–산업 누적 자격 경로</li><li>교육사업 메타평가·무작위/준실험 파일럿</li><li>지역 학습–연구–제조 클러스터</li><li>검증·형평성 KPI 기반 예산 재배분</li></ul></article>
+        </div>
+
+        <div class="level-block">
+          <h3>우선 추진 10개 과제</h3>
+          <table class="roadmap-table"><thead><tr><th>#</th><th>과제</th><th>주관·협력</th><th>초기 성공 기준</th></tr></thead><tbody>
+            <tr><td>1</td><td>AI·데이터 사용 공개 및 검증 규약</td><td>교육부·교육청·학교</td><td>과제별 허용범위·출처·검증 항목 적용률</td></tr>
+            <tr><td>2</td><td>전 교과 재현 가능 과제 템플릿</td><td>교과 연구회·평가원</td><td>독립 팀 재현 성공률과 오류 수정률</td></tr>
+            <tr><td>3</td><td>AI 풀이·주장 비판 문항은행</td><td>수학·과학·정보 교사</td><td>학생의 오류 탐지·근거 설명 향상</td></tr>
+            <tr><td>4</td><td>과학·CS·수학 공동 스튜디오</td><td>학교·대학</td><td>학문별 성취와 통합 전이 동시 향상</td></tr>
+            <tr><td>5</td><td>지역 공유 실험·컴퓨팅 허브</td><td>교육청·대학·출연연·기업</td><td>비수도권·취약학교 이용률과 대기시간</td></tr>
+            <tr><td>6</td><td>실험기술·데이터·AI 교원 마이크로자격</td><td>교원양성대학·연수원</td><td>수업 적용 포트폴리오와 동료검토 통과율</td></tr>
+            <tr><td>7</td><td>복제연구·부정적 결과 학점 및 공모</td><td>대학·연구재단</td><td>공개 프로토콜·데이터 재사용 횟수</td></tr>
+            <tr><td>8</td><td>산학연 도제·멘토 정규학점화</td><td>대학·직업계고·산업계</td><td>현장 수행역량과 진로 이동성</td></tr>
+            <tr><td>9</td><td>교육용 데이터 신탁과 버전 저장소</td><td>교육부·개인정보·공공데이터 기관</td><td>안전한 데이터셋 수·접근 격차·사고 건수</td></tr>
+            <tr><td>10</td><td>STEM 교육 메타평가 조직</td><td>교육부·평가원·대학</td><td>정책별 비교근거와 개선·중단 결정 반영률</td></tr>
+          </tbody></table>
+        </div>
+
+        <h3 style="margin-top:26px">성과지표는 ‘양’보다 ‘신뢰성과 접근’으로</h3>
+        <div class="metric-grid">
+          <div class="metric"><strong>학습의 깊이</strong><span>가정 설명, 반례 탐색, 개념 전이, 구두 방어</span></div>
+          <div class="metric"><strong>검증의 질</strong><span>재현 성공률, 오류 수정률, 데이터·코드 완전성</span></div>
+          <div class="metric"><strong>접근 형평성</strong><span>지역·소득·성별·장애별 장비·멘토·심화기회 격차</span></div>
+          <div class="metric"><strong>현장 번역</strong><span>프로토타입 검증, 지역문제 개선, 산업·공공재 기여</span></div>
+        </div>
+
+        <div class="note">
+          <strong>한국형 데이터·AI 가드레일:</strong> 학생 데이터에는 최소수집, 명시적 동의, 열람·정정·삭제, 국외 이전 고지, 인간 재검토와 이의제기 권리를 적용해야 한다. 공공 조달은 모델·데이터 이동성과 공급자 전환 가능성을 요구하고, 한국어·국내 과학·지역 데이터는 교육 공공재로 축적한다. 미국 보고서의 기술패권 목적은 그대로 이식하지 않고 민주적 시민성·아동 권리·국제협력을 별도 목표로 둔다.
+        </div>
+
+        <div class="critical note">
+          <strong>팀장 권고:</strong> 첫 투자처는 학생용 생성형 AI 구독이 아니라, 교원의 공동설계 시간, 데이터·출처 규칙, 실험·컴퓨팅 접근, 재현 중심 평가다. 도구는 빠르게 바뀌지만 이 네 가지는 교육 시스템의 장기 역량으로 남는다.
+        </div>
+      </section>
+
+      <section id="sources" class="report-section">
+        <p class="section-kicker">Sources & boundaries</p>
+        <h2>주요 출처와 해석 범위</h2>
+        <div class="source-list">
+          <div class="source-item"><strong>주 분석자료</strong> — White House OSTP, <a href="https://www.whitehouse.gov/science/" target="_blank" rel="noopener">Science: A New Golden Age 웹페이지</a>, 2026.</div>
+          <div class="source-item"><strong>보고서·부록 원문</strong> — Michael Kratsios, <a href="https://www.whitehouse.gov/wp-content/uploads/2026/07/Science-A-New-Golden-Age.pdf" target="_blank" rel="noopener">Science: A New Golden Age: A Report to the President</a>, 123쪽, 2026.07.21. FY2028 R&amp;D Priorities Memorandum은 같은 PDF의 pp.85–104에 수록되어 있다.</div>
+          <div class="source-item"><strong>AI 교육 비교틀</strong> — UNESCO, <a href="https://www.unesco.org/en/articles/ai-competency-framework-students" target="_blank" rel="noopener">AI Competency Framework for Students</a>, 2024; OECD·European Commission, <a href="https://www.oecd.org/en/publications/empowering-learners-for-the-age-of-ai_65cd27d4-en.html" target="_blank" rel="noopener">Empowering Learners for the Age of AI</a>, 2026.</div>
+          <div class="source-item"><strong>컴퓨터과학 비교틀</strong> — Computer Science Teachers Association, <a href="https://csteachers.org/pk12standards/about/" target="_blank" rel="noopener">2026 CSTA PK–12 Computer Science Standards</a>.</div>
+          <div class="source-item"><strong>과학·STEM 비교틀</strong> — <a href="https://www.nextgenscience.org/" target="_blank" rel="noopener">Next Generation Science Standards</a>; National Academies, <a href="https://nap.nationalacademies.org/initiative/committee-on-integrated-stem-education" target="_blank" rel="noopener">STEM Integration in K–12 Education</a>, 2014.</div>
+          <div class="source-item"><strong>한국 정책 맥락</strong> — 교육부, <a href="https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=294&amp;boardSeq=89671&amp;lev=0" target="_blank" rel="noopener">2022 개정 교육과정 총론 주요사항</a>; 교육부, <a href="https://www.moe.go.kr/sub/infoRenew.do?m=020209&amp;page=020209&amp;s=moe" target="_blank" rel="noopener">2026년 AI·디지털 교육 주요 정책</a>.</div>
+        </div>
+        <div class="note" style="margin-top:18px"><strong>인용 원칙:</strong> 백악관 보고서의 진단과 가치판단은 해당 행정부의 정책적 입장이다. 본 보고서는 이를 사실로 승인하기보다, 원문이 제안한 제도 변화가 교육에 주는 함의와 위험을 분리해 분석했다. 외부 교육 프레임은 교육적 번역을 점검하는 보조 기준으로만 사용했다.</div>
+        <footer class="footer">병렬 분석: AI·데이터 리터러시 / 컴퓨터과학·수학 / 과학·STEM · 팀장 통합: 공통 프레임, 비교분석, 한국형 로드맵, HTML 편집.</footer>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    (() => {
+      const links = [...document.querySelectorAll('#toc a')];
+      const sections = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+      if (!('IntersectionObserver' in window)) return;
+      const observer = new IntersectionObserver(entries => {
+        const visible = entries.filter(e => e.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (!visible) return;
+        links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${visible.target.id}`));
+      }, { rootMargin: '-18% 0px -68% 0px', threshold: [0, .1, .5] });
+      sections.forEach(section => observer.observe(section));
+    })();
+  </script>
+</body>
+</html>
